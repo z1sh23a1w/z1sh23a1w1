@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ALSTAR Points Tracker</title>
-    <link rel="icon" type="image/x-icon" href="favicon.png">
+    <link rel="icon" type="image/x-icon" href="images/favicon.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -16,6 +16,7 @@
 
         .primary-maroon { color: #88113b; }
         .bg-maroon { background-color: #88113b; }
+        .bg-dark-blue { background-color: #0b1a42; }
         .text-main { color: #1f2937; }
         
         .btn-modern {
@@ -37,35 +38,24 @@
             background-color: #6d0d2f;
         }
 
-        .nav-link {
-            position: relative;
-            font-size: 1rem;
-            font-weight: 500;
-            letter-spacing: 0.025em;
+        .btn-outline {
+            border: 2px solid #88113b;
+            color: #88113b;
+            background: transparent;
         }
 
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
-            left: 0;
+        .btn-outline:hover {
             background-color: #88113b;
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
+            color: white;
         }
 
         .border-custom { border: 2px solid #d1d5db; }
         .border-b-custom { border-bottom: 2px solid #d1d5db; }
         .border-t-custom { border-top: 2px solid #d1d5db; }
-        
+
         .loader {
             border: 3px solid #f3f3f3;
-            border-top: 3px solid #88113b;
+            border-top: 3px solid #ffffff;
             border-radius: 50%;
             width: 20px;
             height: 20px;
@@ -81,20 +71,18 @@
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex items-center gap-3">
-                    <div class="bg-maroon px-3 py-[11px] rounded-lg flex items-center">
-                        <span class="text-xl font-bold tracking-tighter text-white leading-none">ALSCO</span>
+                    <div class="bg-dark-blue px-3 py-[11px] rounded-lg flex items-center">
+                        <span class="text-xl font-bold tracking-tighter text-white leading-none">ALSTAR</span>
                     </div>
                 </div>
 
-                <div class="hidden lg:flex items-center space-x-8 text-main">
-                    <a href="/" class="nav-link">Home</a>
-                    <a href="/about" class="nav-link">About</a>
-                    <a href="/departments" class="nav-link">Departments</a>
-                    <a href="https://1f728d2d-1495-4449-b1c1-3c3cb399d337.filesusr.com/ugd/df559c_8cf96a8d79ea4d09aaacbff7e0d199c5.pdf" target="_blank" class="nav-link">Handbook</a>
-                    <a href="/events" class="nav-link">Events</a>
-                    <a href="/newsletters" class="nav-link">Newsletters</a>
-                    <a href="/contact" class="nav-link">Get In Touch</a>
-                    <a href="/alstar" class="nav-link">ALSTAR</a>
+                <div>
+                    <a href="/" class="btn-modern btn-outline text-sm py-2 px-5">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                        </svg>
+                        Back To Home
+                    </a>
                 </div>
             </div>
         </div>
@@ -126,38 +114,42 @@
                     </button>
                 </div>
 
-                <div id="results-card" class="p-8 grid grid-cols-1 md:grid-cols-3 gap-y-10 gap-x-8 animate-in fade-in duration-500">
+                <div id="results-card" class="p-8 grid grid-cols-1 md:grid-cols-3 gap-y-10 gap-x-8">
                     <div>
-                        <p class="text-xs uppercase tracking-widest mb-1">Student Name</p>
+                        <p class="text-xs uppercase tracking-widest mb-1 text-gray-500 font-semibold">Student Name</p>
                         <h2 class="text-xl font-bold" id="res-name">---</h2>
                     </div>
                     <div>
-                        <p class="text-xs uppercase tracking-widest mb-1">Student ID</p>
+                        <p class="text-xs uppercase tracking-widest mb-1 text-gray-500 font-semibold">Student ID</p>
                         <h2 class="text-xl font-bold" id="res-id">---</h2>
                     </div>
                     <div>
-                        <p class="text-xs uppercase tracking-widest mb-1">Certificate Status</p>
+                        <p class="text-xs uppercase tracking-widest mb-1 text-gray-500 font-semibold">Certificate Status</p>
                         <h2 class="text-xl font-bold" id="res-eligibility">---</h2>
                     </div>
 
                     <div>
-                        <p class="text-xs uppercase tracking-widest mb-1">Participation Points</p>
+                        <p class="text-xs uppercase tracking-widest mb-1 text-gray-500 font-semibold">Participation Points</p>
                         <p class="text-2xl font-black primary-maroon"><span id="res-participation">0</span>/5</p>
                     </div>
                     <div>
-                        <p class="text-xs uppercase tracking-widest mb-1">Volunteer Points</p>
+                        <p class="text-xs uppercase tracking-widest mb-1 text-gray-500 font-semibold">Volunteer Points</p>
                         <p class="text-2xl font-black primary-maroon"><span id="res-volunteer">0</span>/6</p>
                     </div>
                     <div>
-                        <p class="text-xs uppercase tracking-widest mb-1">Talk or Workshop Points</p>
+                        <p class="text-xs uppercase tracking-widest mb-1 text-gray-500 font-semibold">Talk or Workshop Points</p>
                         <p class="text-2xl font-black primary-maroon"><span id="res-workshop">0</span>/5</p>
                     </div>
                 </div>
             </div>
 
-            <p id="error-msg" class="hidden text-center mt-4 text-red-600 text-xs font-bold uppercase tracking-widest"></p>
+            <p id="error-msg" class="hidden text-center mt-6 text-red-600 text-xs font-bold uppercase tracking-widest"></p>
         </section>
-        </main>
+    </main>
+
+    <footer class="py-8 bg-[#ffffff] border-t-custom text-center">
+        <p class="text-md">© 2026 ALSCO. All rights reserved.</p>
+    </footer>
 
     <script>
         async function checkPoints() {
